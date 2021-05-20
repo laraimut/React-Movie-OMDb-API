@@ -2,5 +2,6 @@ import { combineReducers } from 'redux'
 import userReducer from './usersReducer'
 
 export default combineReducers({
-  users: userReducer
+  users: userReducer,
+  moviedetail : userReducer
 })
