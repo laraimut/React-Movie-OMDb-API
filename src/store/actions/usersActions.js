@@ -1,5 +1,5 @@
 
-import {GET_USERS, USERS_ERROR} from '../types'
+import {GET_USERS, USERS_ERROR, GET_FULL, FULL_ERROR} from '../types'
 import axios from 'axios'
 
 export const getUsers = (test,page) => async dispatch => {
@@ -27,15 +27,15 @@ export const getUsers = (test,page) => async dispatch => {
 
 export const getFull = (test) => async dispatch => {
     try{
-        const res = await axios.get(`http://www.omdbapi.com/?apikey=faf7e5bb&s=${test}&plot=full`)
+        const res = await axios.get(`http://www.omdbapi.com/?i=${test}&plot=full&apikey=faf7e5bb`)
         dispatch( {
-            type: GET_USERS,
+            type: GET_FULL,
             payload: res.data
         })
     }
     catch(e){
         dispatch( {
-            type: USERS_ERROR,
+            type: FULL_ERROR,
             payload: console.log(e),
         })
     }

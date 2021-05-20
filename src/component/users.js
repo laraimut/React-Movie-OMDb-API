@@ -3,7 +3,9 @@ import {connect} from 'react-redux'
 import {getUsers} from '../store/actions/usersActions'
 import { Card, Button, Container, Row, Col } from 'react-bootstrap';
 import ModalImage from "react-modal-image";
-
+import {
+  Link
+} from "react-router-dom";
 import "./user.css";
  class users extends Component {
   constructor(props) {
@@ -27,8 +29,10 @@ import "./user.css";
     }
     render() {
         const {users} = this.props.users
+        // console.log('main')
+        // console.log(this.props)
         const propsValid = (props) => Object.values(props).every(prop => prop !== undefined)
-        console.log(users)
+        // console.log(users)
         return (
             propsValid(this.props) ?
 <>
@@ -57,7 +61,13 @@ import "./user.css";
                 <Card.Text>
                 {u.Year}
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+
+                        <Link
+  to={{
+    pathname: `/Single`,
+    state: [{movieid: u.imdbID}]
+  }}
+>  <Button variant="primary"></Button>   </Link>
               </Card.Body>
             </Card>
             </Col>
@@ -86,7 +96,7 @@ import "./user.css";
   </Row>
   </Container>
   </> : <div>
-          <p>Loading</p>
+          <p>Loadinsg</p>
 
             </div>
 
