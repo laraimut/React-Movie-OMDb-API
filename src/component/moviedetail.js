@@ -21,13 +21,12 @@ import "./user.css";
     }
 
     render() {
-        // const {navs} = this.props.navs
-        console.log('movie')
-        console.log(this.props.moviedetail.moviedetail)
+        const {details} = this.props.moviedetail
+        console.log(this.props.moviedetail.moviedetail.Title)
         return (
 <>
 
-<p>ok</p>
+<p>{this.props.moviedetail.moviedetail.Title}</p>
 
   </>
 
